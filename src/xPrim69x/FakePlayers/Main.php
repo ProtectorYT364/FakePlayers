@@ -10,7 +10,7 @@ class Main extends PluginBase{
 	public static $instance;
 	public $knockback;
 
-	public function onEnable(){
+	public function onEnable(): void{
 		$this->getServer()->getCommandMap()->register($this->getName(), new FakePlayerCommand());
 		$this->init();
 	}

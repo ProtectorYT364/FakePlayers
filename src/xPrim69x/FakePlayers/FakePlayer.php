@@ -4,7 +4,7 @@ namespace xPrim69x\FakePlayers;
 
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
-use pocketmine\level\Level;
+use pocketmine\world\World;
 use pocketmine\nbt\tag\CompoundTag;
 
 class FakePlayer extends Human {
@@ -12,8 +12,8 @@ class FakePlayer extends Human {
 	private $name;
 	private $kb;
 
-	public function __construct(Level $level, CompoundTag $nbt){
-		parent::__construct($level, $nbt);
+	public function __construct(World $world, CompoundTag $nbt){
+		parent::__construct($world, $nbt);
 		$this->kb = Main::getInstance()->knockback;
 	}
 

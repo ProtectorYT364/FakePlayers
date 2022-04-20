@@ -7,7 +7,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
 use pocketmine\item\ItemIds;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\TextFormat as TF;
 
 class FakePlayerCommand extends Command {
@@ -39,7 +39,7 @@ class FakePlayerCommand extends Command {
 			$nbt = Entity::createBaseNBT($player, null, 2, 2);
 			$nbt->setTag($player->namedtag->getTag("Skin"));
 			$nbt->setString("playername", $player->getName());
-			$fp = new FakePlayer($player->getLevel(), $nbt);
+			$fp = new FakePlayer($player->getWorld(), $nbt);
 			$fp->setNameTagAlwaysVisible(true);
 			$fp->spawnToAll();
 			$player->sendMessage(TF::AQUA . 'A fake player has been spawned in!');
